@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+html, body {
+height: 100%;
+width: 100%;
+margin: 0;
+padding: 0;
+background-color:pink;
+
+
+
+font-family: 'Raleway';
+}
+.top {
+  background-color: #264356;
+  height: 200px;
+  margin:0;
+  padding:0;
+  box-shadow: 2px 2px 4px rgb(0, 0, 0, .25);
+}
+.theForm {
+  height: 2300px;
+  width: 600px;
+ 
+  margin: -110px auto;
+  border-radius: 10px;
+  color: #666;
+  padding: 0px 0px;
+  box-shadow: 2px 2px 2px  rgb(0, 0, 0, .25);
+ background-color:white;
+   
+}
+.info {
+  padding: 10px;
+}
+.infoForm{
+padding:10px
+}
+h1, h2,h3,h4, p {
+  text-align: center;
+  padding: 0px;
+  margin: 5px 5px;
+}
+
+h2 {
+  font-family: 'Great Vibes', cursive;
+  font-weight: 100;
+}
+
+p.line {
+  margin: 0px auto 20px auto;
+  color: #999;
+}
+.infoForm input {
+  font-size: 15px;
+  color: #666;
+  padding: 6px;
+  margin: 25px auto 20px;
+  display: block;
+  width: 75%;  
+}
+
+input:focus {
+  outline: 0;
+}
+.button button {
+  display: inline-block;
+  width: 400px;
+}
+button {
+  color: #666;
+  background-color: #ffbdc7;
+  border: none;
+  font-family: 'Raleway';
+  font-size: 18px;
+  font-weight: 600;
+  padding: 15px 32px;
+  width: 200px;
+  margin: 20px auto 0px auto;
+ 
+}
+
+button.accept {
+  border-radius: 0px 0px 0px 10px;
+  border-right: solid 1px #cc919a;
+ 
+}
+
+button.regret {
+  border-radius: 0px 0px 10px 0px;
+}
+
+button:hover {
+  background-color: #cc919a;
+  transition: .5s;
+}
+
+button:focus {
+  outline: 0;
+}
+
+.container {
+display: block;
+position: relative;
+padding-left: 30px;
+margin-bottom: 10px;
+cursor: pointer;
+font-size: 17px;
+
+
+}
+.container input {
+position: absolute;
+opacity: 0;
+}
+.radio_class {
+position: absolute;
+top: 0;
+left:0;
+
+height: 20px;
+width: 20px;
+background-color: #eee;
+border-radius: 50%;
+ 
+
+}
+.container:hover input ~ .radio_class {
+background-color: #4863A0;
+}
+.container input:checked ~ .radio_class {
+background-color: #728C00;
+}
+.container .radio_class:after {
+top: 10px;
+left: 10px;
+width: 10px;
+height: 10px;
+border-radius: 80%;
+background: white;
+
+
+
+
+</style>
+<script
+src="https://code.jquery.com/jquery-3.4.1.js"
+integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+crossorigin="anonymous"></script>
+<script>
+function SubForm (){
+$.ajax({
+url:"https://api.apispreadsheets.com/data/9035/",
+type:"post",
+data:$("#myForm").serializeArray(),
+success: function(){
+alert("Form Data Submitted :)")
+},
+error: function(){
+alert("There was an error :(")
+}
+});
+}
+</script>
+</head>
+<body>
+<div class="top">
+  </div>
+  <div class="theForm">
+  <div class ="info">
+    <h1>RSVP</h1>
+    <h2>for the wedding of</h2>
+    <h1>Sparsh and Aalisha</h1>
+      <p class= "line">________________________________________</p>
+      <h2>The Details</h2>
+      <p>Saturday, April 17, 2021 - Sunday, April 18, 2021</p>
+       <br>
+      <h2>Wedding Ceremony</h2>
+      <p>Jaypee Palace Hotel</p>
+      <p>Fatehbad Road, Agra</p>
+           <p class= "line">________________________________________</p>
+  <div style="padding-left: 20px; padding-right:20px">
+  <h2>Fill out the details below before March 20, 2021 so that we can make your stay with us a joyous one</h2>
+    <p class= "line">________________________________________</p>
+
+</div>
+
+<div class="infoForm">
+<form id="myForm">
+<h2> Attendance</h2>
+<div>
+<label class="container">Will Attend
+<input type="radio" name="radioAttend" value="Will Attend" ></input>
+<span class="radio_class"></span>
+</label>
+<label class="container">Will Not Attend
+<input type="radio" name="radioAttend" value="will not Attend"></input>
+<span class="radio_class"></span>
+</label>
+</div>
+<h2> If Attending Fill the Details</h2>
+
+<input type="number" name="noofguests" placeholder="# of Guests" max="6" min="1"/>
+
+
+<input name="city" placeholder="City of Residence"/>
+
+<h3>1st Guest Details</h3>
+<input name="Name1" placeholder="Name"/>
+
+
+<input name="age1" placeholder="Age"/>
+
+
+<input name="number1" placeholder="Mobile Number"/>
+
+<h3>2nd Guest Details</h3>
+<input name="Name2" placeholder="Name"/>
+
+
+<input name="age2" placeholder="Age" />
+
+
+<input name="number2" placeholder="Mobile Number"/>
+<h3>3rd Guest Details</h3>
+
+<input name="Name3" placeholder="Name"/>
+
+
+<input name="age3" placeholder="Age"/>
+
+
+<input name="number3" placeholder="Mobile Number" />
+
+<h3>4th Guest Details</h3>
+<input name="Name4" placeholder="Name" />
+
+
+<input name="age4" placeholder="Age" />
+
+
+<input name="number4" placeholder="Mobile Number" />
+
+<h3>5th Guest Details</h3>
+<input name="Name5" placeholder="Name" />
+
+
+<input name="age5" placeholder="Age" />
+
+
+<input name="number5" placeholder="Mobile Number"/>
+<h3>6th Guest Details</h3>
+<input name="Name6" placeholder="Name" />
+
+
+<input name="age6" placeholder="Age" />
+
+
+<input name="number6" placeholder="Mobile Number"/>
+
+</form>
+<div style="text-align:center; padding:10px">
+   <h3>Please send Aadhar card photo of every guest attending the function on Whatsapp (Neeraj Goel- 9358188881)</h3>
+   
+   <br>
+   
+<button onclick='SubForm()'>Submit</button>
+</div>
+</div>
+</body>
+</html>
